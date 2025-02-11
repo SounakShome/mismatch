@@ -20,7 +20,16 @@
 </style>
  
 <div class="m-10">
-  
+  <Navbar />
+  <Hero />  
+  <AboutUs />
+  <Tracks />
+  <TimeLine />
+  <Prize />
+  <Sponsors />
   <Organizers />
+  <Faq />
+  <Contact />
+  <Footer />
   
 </div>
