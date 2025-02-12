@@ -21,7 +21,7 @@
  
 <div class="m-10">
   <Navbar />
-  <Hero />
+  <Hero />  
   <AboutUs />
   <Tracks />
   <TimeLine />
@@ -31,4 +31,5 @@
   <Faq />
   <Contact />
   <Footer />
+  
 </div>
