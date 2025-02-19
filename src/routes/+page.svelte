@@ -19,7 +19,7 @@
   }
 </style>
  
-<div class="m-10">
+<div class="">
   <Navbar />
   <Hero />
   <AboutUs />
