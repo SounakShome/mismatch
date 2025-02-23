@@ -1,8 +1,8 @@
 import { SvelteKitAuth } from "@auth/sveltekit"
 import Credentials from "@auth/sveltekit/providers/credentials"
-import GitHub from "@auth/sveltekit/providers/github"
 import { env } from "$env/dynamic/private"
 import { change } from "./store"
+import { CredentialsSignin } from "@auth/core/errors"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [
@@ -12,27 +12,32 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const response = await fetch('http://localhost:5173/signIn', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(credentials)
-        })
-        if (!response.ok) {
-          return null
-        } else {
-          const user = await response.json()
-          change(user.cookie)
-          return { ...user };
+
+        try {
+          const response = await fetch('http://localhost:5173/api/signin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credentials)
+          })
+          if (!response.ok) {
+            return null
+          } else {
+            const user = await response.json()
+            if (user.error) {
+              throw new CredentialsSignin({ message: user.error, code: "credentials-signin" });
+            }
+            change(user.success)
+            return { ...user };
+          }
+        } catch (error) {
+          console.log("error",error)
         }
       },
-    }),
-    GitHub({
-      clientId: env.GITHUB_CLIENT_ID,
-      clientSecret: env.GITHUB_CLIENT_SECRET,
     }),
   ],
   pages: {
     signIn: "/signIn",
     signOut: "/signOut",
+    error: "/error",
   },
 })

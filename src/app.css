@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import "tailwindcss";
 
-@theme{
+@theme {
     --font-rGlitch: "Rubik Glitch", sans-serif;
+    --font-jersey: "Jersey 25", sans-serif;
+    --font-notable: "Notable", sans-serif;
+    --font-press: "Press Start 2P", sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
