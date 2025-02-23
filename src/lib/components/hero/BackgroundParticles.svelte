@@ -1,8 +1,8 @@
 <!-- BackgroundParticles.svelte -->
-<script>
+<script lang="ts">
   import { onMount, onDestroy } from 'svelte';
-  let particles = [];
-  let intervalId;
+  let particles: any[];
+  let intervalId: any;
 
   function createParticles() {
     particles = Array.from({ length: 50 }, (_, i) => ({
@@ -41,7 +41,7 @@
     <div
       class="particle"
       style="left: {particle.x}%; top: {particle.y}%; width: {particle.size}px; height: {particle.size}px; opacity: {particle.opacity};"
-    />
+    ></div> 
   {/each}
 </div>
 

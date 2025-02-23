@@ -8,9 +8,8 @@
 
 	let slideIndex = 0;
 	let expanded = false;
-	let titles = ["FinTech", "Web3", "DevTools", "OpenINO"];
+	let titles = ["Web3", "DevTools", "OpenINO"];
 	let texts = [
-		"Financial technology is transforming the way we manage, invest, and transact money through innovative solutions like digital banking, blockchain, and AI-driven financial services.",
 		"Blockchain and decentralized finance are revolutionizing the digital economy.",
 		"Advanced tools and frameworks empower developers to build efficient solutions.",
 		"Open Innovation fosters collaboration between industries, startups, and academia to drive technological advancements and solve global challenges.",
@@ -37,10 +36,10 @@
 
 <section>
 	<div class="container">
-		<img src={background} alt="Welcome" class="bg" />
-		<img src={bubbles} alt="Welcome" class="bubbles" />
+		<div class="font-notable text-4xl text-white">
+			Tracks
+		</div>
 		<div class="welcome">
-			<img src={tracks} alt="Welcome" class="trackimg" />
 			<div class="trackSliderContainer">
 				<img src={trackPage} alt="Track Page" class="trackPage" />
 				<div class="trackSlider">
@@ -74,28 +73,21 @@
 </section>
 
 <style>
-	
+	section {
+		background-image: url("/tracks.gif");
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+	}
 	.container {
         margin: 0;
-		background-color: #19072b;
 		z-index: 0;
 		display: flex;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 		position: relative;
 		min-height: 100ch;
 		overflow: hidden;
-	}
-	.bg {
-		position: absolute;
-		z-index: -1;
-		height: 100%;
-	}
-	.bubbles {
-		right: 0%;
-		position: absolute;
-		z-index: -2;
-		height: 100%;
 	}
 	.welcome {
 		display: flex;
@@ -103,10 +95,6 @@
 		align-items: center;
 		position: relative;
 		z-index: 1;
-	}
-	.trackimg {
-		position: relative;
-		padding-right: 150px;
 	}
 	.welcome img {
 		width: 500px;
@@ -206,6 +194,7 @@
 	.next {
 		background: -webkit-linear-gradient(#FFECAD, #FFDD00);
 		-webkit-background-clip: text;
+		background-clip: text;
 		-webkit-text-fill-color: transparent;
 		position: absolute;
 		top: 54%;
@@ -214,8 +203,8 @@
 	}
 	.know{
 		background: -webkit-linear-gradient(#FF85DA, #FF057C);
-		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
 		position: absolute;
 		top: 54%;
 		left: 26%;
@@ -224,6 +213,7 @@
 	@media (max-width: 768px) {
 		.container{
 			max-height: 458px;
+			flex-direction: column;
 		}
 		.welcome {
 			flex-direction: column;
@@ -249,10 +239,10 @@
 			line-height: 1.5;
 			overflow: auto;
 			scrollbar-width: none;
-			height: 50px;
+			height: 70px;
 		}
 		.trackSliderContainer:hover {
-			transform: scale(1.4);
+			transform: scale(1);
 			overflow: hidden;
 		}
 
@@ -261,24 +251,21 @@
 			height: 45px;
 
 		}
-		.trackimg {
-			margin-bottom: 50px;
-			padding-right: 50px;
-		}
 		.prev{
-			top: 31%;
-			right: 19%;
-			font-size: 5px;
+			top: 32%;
+			right: 23%;
+			font-size: 10px;
 		}
 		.next{
 			top: 53%;
 			right: 22%;
-			font-size: 6px;
+			font-size: 10px;
 		}
 		.know{
 			top: 53%;
-			left: 24%;
-			font-size: 6px;
+			left: 28%;
+			font-size: 10px;
+			padding: 0;
 		}
 	}
 </style>
