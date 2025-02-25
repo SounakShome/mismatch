@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import trackPage from "$lib/assets/trackPage.png";
+	import { fade, scale } from "svelte/transition";
 
 	let slideIndex = 0;
 	let expanded = false;
@@ -106,26 +107,24 @@
 		</div>
 
 		{#if modalOpen}
-			<div class="modal">
-				<div class="modal-content">
-					<h1 class="font-notable md:text-2xl pt-32 md:pt-0 mb-8">
-						{selectedTrack !== null
-							? tracks[selectedTrack].title
-							: ""}
-					</h1>
-					<p class="font-press font-extralight text-justify">
-						{selectedTrack !== null
-							? tracks[selectedTrack].description
-							: ""}
-					</p>
-					<button
-						class="close"
-						on:click={closeModal}
-						aria-label="Close modal">CLOSE</button
-					>
-				</div>
-			</div>
-		{/if}
+	<div class="modal">
+		<div class="modal-content" on:click|stopPropagation transition:scale={{ duration: 300 }}>
+			<h1 class="font-notable text-lg md:text-2xl pt-20 md:pt-0 mb-4">
+				{selectedTrack !== null ? tracks[selectedTrack].title : ""}
+			</h1>
+			<p class="font-press font-light text-sm md:text-base text-justify overflow-y-auto">
+				{selectedTrack !== null ? tracks[selectedTrack].description : ""}
+			</p>
+			<button
+				class="close font-notable text-xs mt-4"
+				on:click={closeModal}
+				transition:fade
+				aria-label="Close modal">
+				CLOSE
+			</button>
+		</div>
+	</div>
+{/if}
 	</div>
 </section>
 
@@ -148,14 +147,18 @@
 		justify-content: center;
 		align-items: center;
 		z-index: 100000;
+		color: white;
 	}
 
 	.modal-content {
-		background: white;
-		padding: 40px;
+		background: rgba(0, 0, 0, 0.7);
+		padding: 30px;
 		border-radius: 10px;
 		width: 50%;
 		text-align: center;
+		border: 5px aqua solid;
+		box-shadow: 0px 10px 30px rgba(0, 25, 254, 0.5); /* Stronger shadow effect */
+		transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 	}
 
 	.close {
