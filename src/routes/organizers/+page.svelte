@@ -53,7 +53,7 @@
       id: 5,
       name: "Ashif",
       image: "/placehoder.avif",
-      description: "WebDev Co-Lead",
+      description: "WebDev Lead",
       bgImage: "/box.svg",
       instagram: "ashif",
       linkedin: "ashif",
@@ -63,7 +63,9 @@
   let items = [...orgs];
 </script>
 
-<div class="min-h-screen flex md:items-center md:pt-0 pt-42 justify-center p-4 w-screen site-background">
+<div
+  class="min-h-screen flex md:items-center md:pt-0 pt-42 justify-center p-4 w-screen site-background"
+>
   <div class="w-full">
     <h2
       class="text-3xl md:text-5xl md:pt-32 font-extrabold font-notable text-center p-3 md:p-0 text-white"
@@ -75,12 +77,10 @@
       class="flex justify-center items-center md:flex-row flex-col gap-10 px-4 min-h-[300px] md:min-h-[500px]"
     >
       {#each items as person, i (person.id)}
-        <div
-        >
+        <div>
           <div
             class="w-50 group md:w-56 md:hover:scale-125 md:transition-transform md:duration-300"
           >
-
             <div
               class="bg-[#1a1a3d] rounded-2xl p-4 md:p-6 flex flex-col items-center space-y-3 md:space-y-5 shadow-2xl border border-[#2a2a5f] sponsor-box"
               style="background-image: url({person.bgImage}); background-size: cover; background-position: center;"
@@ -106,12 +106,12 @@
                 </p>
               </div>
               <div class="text-white flex gap-2">
-                  <button on:click={() => window.open(person.instagram)}>
-                    <Instagram  />
-                    </button>
-                    <button on:click={() => window.open(person.linkedin)}>
-                      <Linkedin  />
-                  </button>
+                <button on:click={() => window.open(person.instagram)}>
+                  <Instagram />
+                </button>
+                <button on:click={() => window.open(person.linkedin)}>
+                  <Linkedin />
+                </button>
               </div>
             </div>
           </div>

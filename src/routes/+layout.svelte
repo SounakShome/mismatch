@@ -22,7 +22,7 @@
     <img src="/loading.gif" alt="loading...">
   </div>
 {/if}
-  <!-- <Navbar /> -->
+  <Navbar />
   {@render children()}
   <div
     class="text-white border-2 p-2 rounded-full"
