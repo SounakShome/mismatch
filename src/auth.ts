@@ -40,4 +40,5 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
     signOut: "/signOut",
     error: "/error",
   },
+  trustHost: true,
 })
