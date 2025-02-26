@@ -2,12 +2,12 @@
   import { page } from "$app/state";
   import { goto } from "$app/navigation";
   import ras from "$lib/assets/public/logo.png";
+  import { Menu, X } from "lucide-svelte";
+
+  let open = false;
 
   function toggleMobileMenu() {
-    const mobileMenu = document.getElementById("mobile-menu");
-    if (mobileMenu) {
-      mobileMenu.classList.toggle("hidden");
-    }
+    open = !open;
   }
 </script>
 
@@ -35,20 +35,27 @@
         <button class="text-white cursor-pointer" on:click={() => goto("/faq")}>FAQ</button>
       </div>
       <!-- Mobile Menu Button (visible on mobile only) -->
-        
-      <svg on:click={toggleMobileMenu} on:keydown={(e) => e.key === 'Enter' && toggleMobileMenu()} tabindex="0" role="button" aria-label="Toggle mobile menu" xmlns="http://www.w3.org/2000/svg" class="md:hidden h-6 w-6 absolute top-2 right-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-      </svg>
+       {#if open}
+        <button class="text-white md:hidden h-6 w-6 absolute top-2 right-2" on:click={toggleMobileMenu}><X class="rotate-90" /></button>
+      {:else}
+        <button class="text-white md:hidden h-6 w-6 absolute top-2 right-2" on:click={toggleMobileMenu}><Menu /></button>
+      {/if}
     </div>
   </div>
 
   <!-- Mobile Collapsible Menu -->
-  <div id="mobile-menu" class="hidden absolute top-10 right-4 bg-gray-800 p-4 rounded-lg md:hidden">
-    <button class="text-white block w-full text-left p-2" on:click={toggleMobileMenu}>Close Menu</button>
-    <button class="text-white block w-full text-left p-2" on:click={() => goto("/")}>Home</button>
-    <button class="text-white block w-full text-left p-2" on:click={() => goto("/about")}>About</button>
-    <button class="text-white block w-full text-left p-2" on:click={() => goto("/services")}>Services</button>
-    <button class="text-white block w-full text-left p-2" on:click={() => goto("/contact")}>Contact</button>
+  <div class={`${open ? "block" : "hidden"} bg-gray-800/70 border-2 m-3 absolute top-10 right-4 rounded-3xl md:hidden`} id="mobile-menu">
+    <div class="flex flex-col items-end gap-y-5 p-5">
+      <button class="text-white cursor-pointer" on:click={() => goto("/")}>Home</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/about")}>About</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/tracks")}>Tracks</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/timeline")}>Timeline</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/organizers")}>Organizers</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/prize")}>Prize</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/sponsors")}>Sponsors</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/faq")}>FAQ</button>
+      <button class="text-white cursor-pointer" on:click={() => goto("/signIn")}>Login</button>
+    </div>
   </div>
 </nav>
 
