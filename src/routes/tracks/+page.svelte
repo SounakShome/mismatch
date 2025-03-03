@@ -108,7 +108,7 @@
 
 		{#if modalOpen}
 	<div class="modal">
-		<div class="modal-content" on:click|stopPropagation transition:scale={{ duration: 300 }}>
+		<div class="modal-content"  transition:scale={{ duration: 300 }}>
 			<h1 class="font-notable text-lg md:text-2xl pt-20 md:pt-0 mb-4">
 				{selectedTrack !== null ? tracks[selectedTrack].title : ""}
 			</h1>
