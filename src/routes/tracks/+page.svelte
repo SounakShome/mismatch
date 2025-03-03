@@ -107,24 +107,37 @@
 		</div>
 
 		{#if modalOpen}
-	<div class="modal">
-		<div class="modal-content"  transition:scale={{ duration: 300 }}>
-			<h1 class="font-notable text-lg md:text-2xl pt-20 md:pt-0 mb-4">
-				{selectedTrack !== null ? tracks[selectedTrack].title : ""}
-			</h1>
-			<p class="font-press font-light text-sm md:text-base text-justify overflow-y-auto">
-				{selectedTrack !== null ? tracks[selectedTrack].description : ""}
-			</p>
-			<button
-				class="close font-notable text-xs mt-4"
-				on:click={closeModal}
-				transition:fade
-				aria-label="Close modal">
-				CLOSE
-			</button>
-		</div>
-	</div>
-{/if}
+			<div class="modal" on:click={closeModal}>
+				<div
+					class="modal-content"
+					on:click|stopPropagation
+					transition:scale={{ duration: 300 }}
+				>
+					<h1 class="font-notable text-lg md:text-2xl pt-4 mb-4">
+						{selectedTrack !== null
+							? tracks[selectedTrack].title
+							: ""}
+					</h1>
+					<div class="modal-body">
+						<p
+							class="font-press font-light text-sm md:text-base text-justify"
+						>
+							{selectedTrack !== null
+								? tracks[selectedTrack].description
+								: ""}
+						</p>
+					</div>
+					<button
+						class="close font-notable text-xs mt-4"
+						on:click={closeModal}
+						transition:fade
+						aria-label="Close modal"
+					>
+						CLOSE
+					</button>
+				</div>
+			</div>
+		{/if}
 	</div>
 </section>
 
@@ -148,25 +161,64 @@
 		align-items: center;
 		z-index: 100000;
 		color: white;
+		padding: 15px;
 	}
 
 	.modal-content {
-		background: rgba(0, 0, 0, 0.7);
-		padding: 30px;
+		background: rgba(0, 0, 0, 0.8);
+		padding: 20px;
 		border-radius: 10px;
-		width: 50%;
+		width: 90%;
+		max-width: 800px;
+		max-height: 80vh;
 		text-align: center;
 		border: 5px aqua solid;
-		box-shadow: 0px 10px 30px rgba(0, 25, 254, 0.5); /* Stronger shadow effect */
+		box-shadow: 0px 10px 30px rgba(0, 25, 254, 0.5);
 		transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.modal-body {
+		overflow-y: auto;
+		max-height: 50vh;
+		margin: 10px 0;
+		padding: 0 10px;
+		/* Custom scrollbar styles */
+		scrollbar-width: thin;
+		scrollbar-color: aqua rgba(0, 0, 0, 0.2);
+	}
+
+	.modal-body::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	.modal-body::-webkit-scrollbar-track {
+		background: rgba(0, 0, 0, 0.2);
+		border-radius: 4px;
+	}
+
+	.modal-body::-webkit-scrollbar-thumb {
+		background-color: aqua;
+		border-radius: 4px;
 	}
 
 	.close {
-		top: 10px;
-		right: 20px;
-		font-size: 30px;
+		padding: 8px 16px;
+		background: rgba(0, 0, 0, 0.5);
+		border: 2px solid aqua;
+		color: aqua;
+		border-radius: 5px;
 		cursor: pointer;
+		margin: 0 auto;
+		transition: all 0.2s ease;
 	}
+
+	.close:hover {
+		background: rgba(0, 255, 255, 0.1);
+		transform: scale(1.05);
+	}
+
 	.container {
 		margin: 0;
 		z-index: 0;
@@ -293,6 +345,15 @@
 		font-size: 9px;
 	}
 	@media (max-width: 768px) {
+		.modal-content {
+			width: 95%;
+			padding: 15px;
+			max-height: 90vh;
+		}
+
+		.modal-body {
+			max-height: 60vh;
+		}
 		.container {
 			max-height: 458px;
 			flex-direction: column;
@@ -347,6 +408,18 @@
 			left: 28%;
 			font-size: 10px;
 			padding: 0;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.modal-content {
+			border-width: 3px;
+			padding: 12px;
+		}
+
+		.close {
+			padding: 6px 12px;
+			margin-top: 10px;
 		}
 	}
 </style>
