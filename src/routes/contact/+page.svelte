@@ -189,11 +189,13 @@
                 <a
                     href="https://www.instagram.com/ieeerasvitc/"
                     class="text-gray-400 hover:text-white text-4xl"
+                    aria-label="Instagram"
                     ><i class="fab fa-instagram"></i></a
                 >
                 <a
                     href="https://www.linkedin.com/company/ieeeras-vitc"
                     class="text-gray-400 hover:text-white text-4xl"
+                    aria-label="LinkedIn"
                     ><i class="fab fa-linkedin"></i></a
                 >
             </div>

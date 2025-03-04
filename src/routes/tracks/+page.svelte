@@ -107,10 +107,10 @@
 		</div>
 
 		{#if modalOpen}
-			<div class="modal" on:click={closeModal}>
+			<div class="modal" >
 				<div
 					class="modal-content"
-					on:click|stopPropagation
+					
 					transition:scale={{ duration: 300 }}
 				>
 					<h1 class="font-notable text-lg md:text-2xl pt-4 mb-4">
