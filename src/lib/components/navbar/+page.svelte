@@ -75,7 +75,7 @@
   </div>
 
   <!-- Mobile Collapsible Menu -->
-  <div id="mobile-menu" class="hidden absolute top-10 right-4 bg-gray-800 p-4 rounded-lg md:hidden">
+  <div id="mobile-menu" class="hidden absolute bg-transparent top-10 right-4  p-4 rounded-lg md:hidden">
     <button class="text-white block w-full text-left p-2" on:click={toggleMobileMenu}>Close Menu</button>
     <button class="text-white block w-full text-left p-2" on:click={() => goto("/")}>Home</button>
     <button class="text-white block w-full text-left p-2" on:click={() => goto("/about")}>About</button>

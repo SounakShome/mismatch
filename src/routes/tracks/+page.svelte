@@ -37,7 +37,7 @@
 	function toggleExpand() {
 		expanded = !expanded;
 	}
-	function openModal(trackIndex) {
+	function openModal(trackIndex: number) {
 		selectedTrack = trackIndex;
 		modalOpen = true;
 	}
@@ -343,6 +343,7 @@
 		background: -webkit-linear-gradient(#ff85da, #ff057c);
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
+		background-clip: text;
 		position: absolute;
 		top: 57.5%;
 		left: 28%;

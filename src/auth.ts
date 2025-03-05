@@ -5,9 +5,6 @@ import { change } from "./store"
 import { CredentialsSignin } from "@auth/core/errors"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
-
-  trustHost: true,
-  
   providers: [
     Credentials({
       credentials: {
