@@ -99,18 +99,17 @@
             </p>
 
             <div class="space-y-3 text-red-500">
+                
                 <p>
-                    <i class="fas fa-envelope"></i> Instagram
+                    <i class="fas fa-phone"></i> Sounak : +91 97390 77559
                 </p>
                 <p>
-                    <i class="fas fa-phone"></i> Linkedin
+                    <i class="fas fa-phone"></i> Dev : +91 70168 07505
                 </p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> Mail ID
+                    <i class="fas fa-phone"></i> Ashif : +91 93614 71721
                 </p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> contact number
-                </p>
+                
             </div>
         </div>
 
@@ -193,7 +192,7 @@
                     ><i class="fab fa-instagram"></i></a
                 >
                 <a
-                    href="https://www.linkedin.com/company/ieeeras-vitc"
+                    href="https://www.linkedin.com/company/ieeerasvitc/posts/?feedView=all"
                     class="text-gray-400 hover:text-white text-4xl"
                     aria-label="LinkedIn"
                     ><i class="fab fa-linkedin"></i></a
