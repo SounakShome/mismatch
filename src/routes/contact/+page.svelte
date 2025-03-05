@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import "@fortawesome/fontawesome-free/css/all.min.css";
 
     let name = "";
     let email = "";
     let message = "";
     let phone = "";
-    let success = null;
+    let success: string | null = null;
     let loading = false;
     const submitForm = async () => {
         try {
@@ -15,13 +15,20 @@
             // Create a unique callback name
             const callbackName = "jsonpCallback_" + Date.now();
 
+            // Define callback response type
+            interface JsonpResponse {
+                status: string;
+                message?: string;
+                [key: string]: any;
+            }
+
             // Create a promise that will be resolved by the JSONP response
-            const jsonpPromise = new Promise((resolve, reject) => {
+            const jsonpPromise = new Promise<JsonpResponse>((resolve, reject) => {
                 // Define the callback function
-                window[callbackName] = (data) => {
+                (window as {[key: string]: any})[callbackName] = (data: JsonpResponse) => {
                     // Clean up
                     document.body.removeChild(script);
-                    delete window[callbackName];
+                    delete (window as {[key: string]: any})[callbackName];
 
                     // Resolve with the data
                     resolve(data);
@@ -34,7 +41,7 @@
                 script.onerror = () => {
                     // Clean up
                     document.body.removeChild(script);
-                    delete window[callbackName];
+                    delete (window as {[key: string]: any})[callbackName];
 
                     // Reject with error
                     reject(new Error("JSONP request failed"));
@@ -158,53 +165,3 @@
     </div>
 </div>
 
-<!-- Footer Section -->
-<footer class="bg-black opacity-70 text-white py-8 px-4 md:px-12 border-t-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Logo & Description -->
-        <div>
-            <div class="flex items-center space-x-4">
-                <img src="/logo.png" alt="logo" class="h-16 w-16" />
-                <h2 class="text-2xl font-bold">MisMatch'25</h2>
-            </div>
-            <p class="text-gray-400 mt-2">
-                One-Kind-Of Hackathon by the IEEERAS Club of VITC!
-            </p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="flex flex-col space-y-2">
-            <h3 class="font-semibold text-lg">Quick Links</h3>
-            <a href="/" class="text-gray-400 hover:text-white">Home</a>
-            <a href="/about" class="text-gray-400 hover:text-white">About</a>
-            <a href="/prize" class="text-gray-400 hover:text-white">PrizePool</a
-            >
-            <a href="/tracks" class="text-gray-400 hover:text-white">Tracks</a>
-        </div>
-
-        <!-- Social Media Links -->
-        <div>
-            <h3 class="font-bold text-lg">Follow Us</h3>
-            <div class="flex space-x-8 mt-2">
-                <a
-                    href="https://www.instagram.com/ieeerasvitc/"
-                    class="text-gray-400 hover:text-white text-4xl"
-                    aria-label="Instagram"
-                    ><i class="fab fa-instagram"></i></a
-                >
-                <a
-                    href="https://www.linkedin.com/company/ieeeras-vitc"
-                    class="text-gray-400 hover:text-white text-4xl"
-                    aria-label="LinkedIn"
-                    ><i class="fab fa-linkedin"></i></a
-                >
-            </div>
-        </div>
-    </div>
-
-    <div
-        class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500 text-sm"
-    >
-        &copy; 2025 MisMatch'25 . All rights reserved.
-    </div>
-</footer>
