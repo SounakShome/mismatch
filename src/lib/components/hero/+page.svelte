@@ -36,7 +36,7 @@
   />
 </svelte:head>
 
-<main class="relative min-h-screen bg-black text-white flex flex-col items-center justify-center">
+<main class="relative min-h-screen md:pt-0 pt-32 bg-black text-white flex flex-col items-center justify-center">
   <!-- <BackgroundParticles /> -->
 
   <div class="content flex flex-col items-center text-center space-y-4">

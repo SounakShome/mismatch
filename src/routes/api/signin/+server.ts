@@ -5,7 +5,6 @@ import User from "../../../models/user";
 export async function POST({ request }) {
     const data = await request.json();
     const user = await User.findOne({"email": data.email});
-    console.log(user);
     if (!user) {
         return json({error: "User not found"});
     }
@@ -18,7 +17,10 @@ export async function POST({ request }) {
     }
     return json({
         success: {
-            name: user.name
+            name: user.name,
+            reg: user.reg,
+            team: user.teamId,
+            role: user.role
         }
     });
 }

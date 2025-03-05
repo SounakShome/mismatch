@@ -23,9 +23,9 @@
     }
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+<form on:submit|preventDefault={handleSubmit} class="max-w-md mt-32 mx-auto bg-white p-8 rounded-lg shadow-md">
     <div class="mb-4">
-        <label for="username" class="block text-gray-700 font-bold mb-2">Username:</label>
+        <label for="username" class="block text-gray-700 font-bold mb-2">Full Name:</label>
         <input type="text" id="username" bind:value={username} required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
     </div>
 

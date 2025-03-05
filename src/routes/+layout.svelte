@@ -19,16 +19,19 @@
 
 {#if !isLoaded}
   <div class="flex bg-black h-screen flex-col items-center justify-center">
-    <img src="/loading.gif" alt="loading...">
+    <img src="/loading.gif" alt="loading..." />
+  </div>
+{:else if isLoaded}
+  <div class="mx-auto">
+    <!-- <Navbar /> -->
+    {@render children()}
+    <div
+      class="text-white border-2 p-2 rounded-full"
+      style="position: fixed; bottom: 20px; right: 20px;"
+    >
+      <a href="/contact" class="flex items-center gap-2">
+        <UserRound /> Contact Us
+      </a>
+    </div>
   </div>
 {/if}
-  <Navbar />
-  {@render children()}
-  <div
-    class="text-white border-2 p-2 rounded-full"
-    style="position: fixed; bottom: 20px; right: 20px;"
-  >
-    <a href="/contact" class="flex items-center gap-2">
-      <UserRound /> Contact Us
-    </a>
-  </div>

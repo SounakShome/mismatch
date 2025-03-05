@@ -44,7 +44,7 @@
   style="background-image: url('/metro.gif')"
 ></div>
 
-<div class="content relative h-screen overflow-auto px-4 py-6">
+<div class="content relative h-screen mx-auto overflow-auto px-4 py-6">
   <header class="flex md:h-96 h-48 justify-center items-center mb-8">
     <h1
       class="heading text-[48px] items-center md:text-[96px] font-bold text-purple-100"
