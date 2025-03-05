@@ -40,8 +40,8 @@
 
 <!-- Fullscreen background -->
 <div
-  class="background fixed inset-0 z-[-1] bg-cover bg-center"
-  style="background-image: url('/metro.gif')"
+  class="background fixed inset-0 z-[-1] bg-center bg-contain image-rendering-pixelated"
+  style="background-image: url('/TimelineBG.gif')"
 ></div>
 
 <div class="content relative h-screen mx-auto overflow-auto px-4 py-6">

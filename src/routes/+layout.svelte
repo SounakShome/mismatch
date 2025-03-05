@@ -35,3 +35,13 @@
     </div>
   </div>
 {/if}
+  <Navbar />
+  {@render children()}
+  <div
+    class="text-white border-2 p-2 rounded-full"
+    style="position: fixed; bottom: 20px; right: 20px;"
+  >
+    <a href="/contact" class="flex items-center gap-2">
+      <UserRound /> Contact Us
+    </a>
+  </div>

@@ -18,9 +18,7 @@
   <div class="absolute inset-0 w-screen bg-gradient-to-b from-black via-black/70 to-trasparent z-[-1]"></div>
 
   <!-- Main container -->
-  <div
-    class="container mx-auto px-4 bg-transparent justify-center flex lg:gap-x-5 gap-x-2 items-center"
-  >
+  <div class="container mx-auto px-4 justify-center flex gap-x-5 items-center">
     <!-- Desktop Left Nav (hidden on mobile) -->
     <div class="hidden md:flex lg:gap-x-10 gap-x-5">
       <button class="text-white cursor-pointer" on:click={() => goto("/")}
@@ -77,42 +75,12 @@
   </div>
 
   <!-- Mobile Collapsible Menu -->
-  <div
-    class={`${open ? "block" : "hidden"} bg-gray-800/70 border-2 m-3 absolute top-10 right-4 rounded-3xl md:hidden`}
-    id="mobile-menu"
-  >
-    <div class="flex flex-col items-end gap-y-5 p-5">
-      <button class="text-white cursor-pointer" on:click={() => goto("/")}
-        >Home</button
-      >
-      <button class="text-white cursor-pointer" on:click={() => goto("/about")}
-        >About</button
-      >
-      <button class="text-white cursor-pointer" on:click={() => goto("/tracks")}
-        >Tracks</button
-      >
-      <button
-        class="text-white cursor-pointer"
-        on:click={() => goto("/timeline")}>Timeline</button
-      >
-      <button
-        class="text-white cursor-pointer"
-        on:click={() => goto("/organizers")}>Organizers</button
-      >
-      <button class="text-white cursor-pointer" on:click={() => goto("/prize")}
-        >Prize</button
-      >
-      <button
-        class="text-white cursor-pointer"
-        on:click={() => goto("/sponsors")}>Sponsors</button
-      >
-      <button class="text-white cursor-pointer" on:click={() => goto("/faq")}
-        >FAQ</button
-      >
-      <!-- <button class="text-white cursor-pointer" on:click={() => goto("/signIn")}
-        >Login</button
-      > -->
-    </div>
+  <div id="mobile-menu" class="hidden absolute top-10 right-4 bg-gray-800 p-4 rounded-lg md:hidden">
+    <button class="text-white block w-full text-left p-2" on:click={toggleMobileMenu}>Close Menu</button>
+    <button class="text-white block w-full text-left p-2" on:click={() => goto("/")}>Home</button>
+    <button class="text-white block w-full text-left p-2" on:click={() => goto("/about")}>About</button>
+    <button class="text-white block w-full text-left p-2" on:click={() => goto("/services")}>Services</button>
+    <button class="text-white block w-full text-left p-2" on:click={() => goto("/contact")}>Contact</button>
   </div>
 </nav>
 
