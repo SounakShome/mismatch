@@ -1,13 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import BackgroundParticles from "./BackgroundParticles.svelte";
   import hack_logo from "$lib/assets/public/hackathon_logo_trans.png"
-  import ras from "$lib/assets/public/logo.png"
 
   let countdown = { days: 66, hours: 21, minutes: 17 };
 
   function updateCountdown() {
-    const endDate = new Date("2025-04-16").getTime();
+    const endDate = new Date("2025-03-31").getTime();
     const now = new Date().getTime();
     const timeLeft = Math.max(0, endDate - now);
 
@@ -24,7 +22,7 @@
 
   onMount(() => {
     updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
+    const timer = setInterval(updateCountdown, 60000);
     return () => clearInterval(timer);
   });
 </script>
@@ -36,20 +34,24 @@
   />
 </svelte:head>
 
-<main class="relative min-h-screen bg-black text-white flex flex-col items-center justify-center">
-  <!-- <BackgroundParticles /> -->
+<main class="relative font-rGlitch min-h-screen bg-black text-white flex flex-col items-center justify-center">
 
   <div class="content flex flex-col items-center text-center space-y-4">
-    <h1 class="font-rubik-glitch text-2xl font-light">Presents</h1>
+    <h1 class="md:text-5xl text-3xl">Presents</h1>
     <img
       src={hack_logo}
       alt="Hackathon Logo"
-      class="hackathon-logo max-w-xs sm:max-w-sm"
+      class="hackathon-logo max-h-64 max-w-20 md:max-w-sm"
     />
-    <h2 class="font-rubik-glitch text-xl font-light">Registrations Starts Soon!!!</h2>
-    <!-- <div class="countdown text-5xl font-light">
-      {countdown.days}d : {countdown.hours}h : {countdown.minutes}m
+    <h2 class="text-sm md:text-5xl md:block">March 31 - April 1, 2025</h2>
+    <!-- <div class="flex flex-col md:hidden">
+      <h2 class="font font-light text-xs">March 31</h2>
+      <h2 class="font-light text-xs">-</h2>
+      <h2 class="font-light text-xs">April 1</h2>
     </div> -->
+    <div class="countdown md:text-5xl text-4xl">
+      {countdown.days}d : {countdown.hours}h : {countdown.minutes}m
+    </div>
   </div>
 </main>
 
@@ -79,13 +81,9 @@
     }
 
     h1 {
-      font-size: 1.5rem;
       margin-top: 8rem;
     }
 
-    h2 {
-      font-size: 1.5rem;
-    }
 
     .content {
       padding-top: 10%;
@@ -132,14 +130,12 @@
 
   h1 {
     font-family: "Rubik Glitch", cursive;
-    font-size: 2.3rem; /* Reduced from 2.5rem */
     margin: 0;
     padding: 0;
   }
 
   h2 {
     font-family: "Rubik Glitch", cursive;
-    font-size: 2.3rem; /* Reduced from 2.5rem */
     margin: 0;
     padding: 0;
   }

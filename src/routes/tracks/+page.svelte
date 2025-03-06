@@ -37,7 +37,7 @@
 	function toggleExpand() {
 		expanded = !expanded;
 	}
-	function openModal(trackIndex) {
+	function openModal(trackIndex: number) {
 		selectedTrack = trackIndex;
 		modalOpen = true;
 	}
@@ -55,6 +55,11 @@
 		rel="stylesheet"
 	/>
 </svelte:head>
+
+<div
+  class="background fixed inset-0 z-[-1] bg-cover bg-center"
+  style="background-image: url('/tracks.gif')"
+></div>
 
 <section>
 	<div class="container mt-32">
@@ -218,7 +223,6 @@
 		background: rgba(0, 255, 255, 0.1);
 		transform: scale(1.05);
 	}
-
 	.container {
 		margin: 0;
 		z-index: 0;
@@ -267,12 +271,12 @@
 
 	.content {
 		position: absolute;
-		top: 36%;
-		left: 30%;
+		top: 34%;
+		left: 29%;
 		text-align: left;
 		color: #81f7ff;
 		font-family: "Press Start 2P", cursive;
-		width: 190px;
+		width: 170px;
 	}
 
 	.title {
@@ -301,8 +305,8 @@
 	}
 
 	.glow-button {
-		width: 115px;
-		height: 55px;
+		width: 87px;
+		height: 20px;
 		font-weight: bold;
 		cursor: pointer;
 		display: flex;
@@ -321,8 +325,8 @@
 	.prev {
 		color: red;
 		position: absolute;
-		top: 34%;
-		right: 24%;
+		top: 35%;
+		right: 22.5%;
 		font-size: 8px;
 	}
 	.next {
@@ -331,17 +335,18 @@
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
 		position: absolute;
-		top: 54%;
-		right: 24%;
+		top: 57.5%;
+		right: 22%;
 		font-size: 9px;
 	}
 	.know {
 		background: -webkit-linear-gradient(#ff85da, #ff057c);
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
+		background-clip: text;
 		position: absolute;
-		top: 54%;
-		left: 26%;
+		top: 57.5%;
+		left: 28%;
 		font-size: 9px;
 	}
 	@media (max-width: 768px) {
@@ -384,8 +389,8 @@
 			scrollbar-width: none;
 			height: 70px;
 		}
-		.trackSliderContainer:hover {
-			transform: scale(1);
+		.trackSliderContainer {
+			transform: scale(1.3);
 			overflow: hidden;
 		}
 
