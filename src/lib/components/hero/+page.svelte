@@ -34,7 +34,7 @@
   />
 </svelte:head>
 
-<main class="relative font-rGlitch min-h-screen md:pt-0 bg-black text-white flex flex-col items-center justify-center">
+<main class="relative font-rGlitch min-h-screen bg-black text-white flex flex-col items-center justify-center">
 
   <div class="content flex flex-col items-center text-center space-y-4">
     <h1 class="md:text-5xl text-3xl">Presents</h1>
