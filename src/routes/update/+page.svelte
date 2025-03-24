@@ -32,7 +32,7 @@
         }
     }
 
-    async function uploadData() {
+    async function uploadDataTeam() {
         if (teams.length === 0 && participants.length === 0) {
             error = 'No data to upload. Please parse a file first.';
             return;
@@ -50,6 +50,41 @@
                 },
                 body: JSON.stringify({
                     teams,
+                    participants
+                })
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || `Server error: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            message = result.message || 'Data uploaded successfully!';
+        } catch (err) {
+            error = `Error uploading data: ${err instanceof Error ? err.message : 'Unknown error'}`;
+        } finally {
+            loading = false;
+        }
+    }
+
+    async function uploadDataUser() {
+        if (teams.length === 0 && participants.length === 0) {
+            error = 'No data to upload. Please parse a file first.';
+            return;
+        }
+        
+        loading = true;
+        error = '';
+        message = '';
+        
+        try {
+            const response = await fetch('/api/update-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
                     participants
                 })
             });
@@ -375,13 +410,24 @@
                 <p class="text-gray-600 mb-4">Upload the extracted data to the database.</p>
                 <button 
                     class="px-6 py-3 bg-green-600 text-white font-medium rounded-md shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                    on:click={uploadData}
+                    on:click={uploadDataTeam}
                     disabled={loading}
                 >
                     {#if loading}
                         <span>Uploading...</span>
                     {:else}
                         <span>Upload Data</span>
+                    {/if}
+                </button>
+                <button 
+                    class="px-6 py-3 bg-green-600 text-white font-medium rounded-md shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                    on:click={uploadDataUser}
+                    disabled={loading}
+                >
+                    {#if loading}
+                        <span>Uploading...</span>
+                    {:else}
+                        <span>Upload Data User</span>
                     {/if}
                 </button>
                 <p class="mt-2 text-xs text-gray-500">This will upload {teams.length} teams and {participants.length} participants to the database.</p>

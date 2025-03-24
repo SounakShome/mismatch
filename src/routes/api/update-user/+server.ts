@@ -1,0 +1,27 @@
+import connectDB from '../../../middleware/mongoose';
+import { json } from '@sveltejs/kit';
+import users from "../../../models/user";
+
+export async function POST({ request }) {
+    try {
+        await connectDB();
+        const data = await request.json();
+        const participants = data.participants;
+        console.log(participants);
+        for (let i = 0; i < participants.length; i++) {
+            let user = new users({ 
+                reg: participants[i].id,
+                name: participants[i].name ,
+                email: participants[i].email,
+                phone: participants[i].phone,
+                college: participants[i].college,
+                team_id: participants[i].team_id, 
+            });
+            await user.save();
+        }
+        return json({ message: "Data uploaded successfully!" });
+    } catch (error) {
+        console.log(error);
+        return json({ message: "Data upload failed!" }, { status: 400 });
+    }
+}
