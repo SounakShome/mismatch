@@ -5,7 +5,7 @@ import users from "../../../models/user";
 
 export async function POST({ request }) {
     try {
-        connectDB();
+        await connectDB();
         const data = await request.json();
         const team = data.teams;
         const participants = data.participants;
