@@ -105,19 +105,20 @@
                 get back to you as soon as possible.
             </p>
 
-            <div class="space-y-3 text-red-500">
-                <p>
-                    <i class="fas fa-envelope"></i> Instagram
-                </p>
-                <p>
-                    <i class="fas fa-phone"></i> Linkedin
-                </p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> Mail ID
-                </p>
-                <p>
-                    <i class="fas fa-map-marker-alt"></i> contact number
-                </p>
+            <div class="space-y-3 text-red-500 flex flex-col justify-center align-middle">
+                
+                <a
+                    href="https://www.instagram.com/ieeerasvitc/"
+                    class="text-red-500  hover:text-red-400 text-xl"
+                    aria-label="Instagram"
+                    ><i class="fab fa-instagram text-4xl"></i> IEEE RAS VITC Instagram</a
+                >
+                <a
+                    href="https://www.linkedin.com/company/ieeerasvitc/posts/?feedView=all"
+                    class="text-red-500  hover:text-red-400 text-xl"
+                    aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin text-4xl"></i>  IEEE RAS VITC LinkedIn</a
+                >
             </div>
         </div>
 
@@ -164,4 +165,3 @@
         </div>
     </div>
 </div>
-

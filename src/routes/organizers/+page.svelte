@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { Instagram } from "lucide-svelte";
-  import { Linkedin } from "lucide-svelte";
+
   interface Orgs {
     id: number;
     name: string;
@@ -16,7 +15,7 @@
     {
       id: 1,
       name: "Kartik Goyal",
-      image: "/placehoder.avif",
+      image: "https://ruxpkor5y4.ufs.sh/f/4UBwEBFjbtgUauggKm6ISPYBVQtrT5Ug4y6mfDLevApKRFzM",
       description: "Chairperson",
       bgImage: "/box.svg",
       instagram: "kartikgoyal",
@@ -25,7 +24,7 @@
     {
       id: 2,
       name: "Sounak Shome",
-      image: "/placehoder.avif",
+      image: "https://utfs.io/f/38731760-c680-47bf-bde0-f9ac41a8a943-etrbc1.jpg",
       description: "Vice Chairperson",
       bgImage: "/box.svg",
       instagram: "sounakshome",
@@ -33,9 +32,9 @@
     },
     {
       id: 3,
-      name: "Sharvin Joshi",
-      image: "/placehoder.avif",
-      description: "WebMaster",
+      name: "Vaibhav P",
+      image: "https://ruxpkor5y4.ufs.sh/f/4UBwEBFjbtgU6bI2QpfQVExvpUF2rYcbPfWLTOA8otgKJkDs",
+      description: "General Secretary",
       bgImage: "/box.svg",
       instagram: "sharvinjoshi",
       linkedin: "sharvinjoshi",
@@ -43,7 +42,7 @@
     {
       id: 4,
       name: "Dev Agarwal",
-      image: "/placehoder.avif",
+      image: "https://utfs.io/f/a2d46825-6169-485c-b1ea-892cfe8ce1df-24np.jpg",
       description: "WebDev Lead",
       bgImage: "/box.svg",
       instagram: "devagarwal",
@@ -52,8 +51,17 @@
     {
       id: 5,
       name: "Ashif",
-      image: "/placehoder.avif",
+      image: "https://ruxpkor5y4.ufs.sh/f/4UBwEBFjbtgUbVJmiux9AsdjL3YDFG1xVetcUf6vm8BKahHu",
       description: "WebDev Lead",
+      bgImage: "/box.svg",
+      instagram: "ashif",
+      linkedin: "ashif",
+    },
+    {
+      id: 6,
+      name: "Sharvin Joshi",
+      image: "https://ruxpkor5y4.ufs.sh/f/4UBwEBFjbtgUOfRoXrKaXqL4hs7mDfGxWgutEUwbdjVHPo0Y",
+      description: "Web Master",
       bgImage: "/box.svg",
       instagram: "ashif",
       linkedin: "ashif",
@@ -91,7 +99,7 @@
                 <img
                   src={person.image}
                   alt={person.name}
-                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                  class="w-full h-full object-cover  transition-all duration-300"
                 />
               </div>
 
@@ -106,12 +114,7 @@
                 </p>
               </div>
               <div class="text-white flex gap-2">
-                <button on:click={() => window.open(person.instagram)}>
-                  <Instagram />
-                </button>
-                <button on:click={() => window.open(person.linkedin)}>
-                  <Linkedin />
-                </button>
+                
               </div>
             </div>
           </div>
