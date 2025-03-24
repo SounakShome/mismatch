@@ -1,13 +1,10 @@
 import { SvelteKitAuth } from "@auth/sveltekit"
 import Credentials from "@auth/sveltekit/providers/credentials"
-import { env } from "$env/dynamic/private"
+import type { JWT } from "@auth/core/jwt"
 import { change } from "./store"
 import { CredentialsSignin } from "@auth/core/errors"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
-
-  trustHost: true,
-  
   providers: [
     Credentials({
       credentials: {
@@ -39,8 +36,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
     }),
   ],
   pages: {
-    signIn: "/signIn",
     signOut: "/signOut",
     error: "/error",
   },
+  trustHost: true,
 })

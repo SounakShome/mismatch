@@ -1,8 +1,13 @@
 <script>
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
+    import { page } from '$app/state';
 
     onMount(() => {
+        if (!page.data.session) {
+            goto('/signIn');
+            return;
+        }
         setTimeout(() => {
             goto('/');
         }, 2000);

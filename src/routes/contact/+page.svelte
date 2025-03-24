@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import "@fortawesome/fontawesome-free/css/all.min.css";
 
     let name = "";
     let email = "";
     let message = "";
     let phone = "";
-    let success = null;
+    let success: string | null = null;
     let loading = false;
     const submitForm = async () => {
         try {
@@ -15,13 +15,20 @@
             // Create a unique callback name
             const callbackName = "jsonpCallback_" + Date.now();
 
+            // Define callback response type
+            interface JsonpResponse {
+                status: string;
+                message?: string;
+                [key: string]: any;
+            }
+
             // Create a promise that will be resolved by the JSONP response
-            const jsonpPromise = new Promise((resolve, reject) => {
+            const jsonpPromise = new Promise<JsonpResponse>((resolve, reject) => {
                 // Define the callback function
-                window[callbackName] = (data) => {
+                (window as {[key: string]: any})[callbackName] = (data: JsonpResponse) => {
                     // Clean up
                     document.body.removeChild(script);
-                    delete window[callbackName];
+                    delete (window as {[key: string]: any})[callbackName];
 
                     // Resolve with the data
                     resolve(data);
@@ -34,7 +41,7 @@
                 script.onerror = () => {
                     // Clean up
                     document.body.removeChild(script);
-                    delete window[callbackName];
+                    delete (window as {[key: string]: any})[callbackName];
 
                     // Reject with error
                     reject(new Error("JSONP request failed"));
@@ -158,6 +165,3 @@
         </div>
     </div>
 </div>
-
-<!-- Footer Section -->
-

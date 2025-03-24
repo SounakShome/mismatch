@@ -6,6 +6,7 @@ import { createToken } from "$lib/token";
 import { sendVerificationRequest } from "$lib/authSendRequest";
 import Jwt from "jsonwebtoken";
 import { env } from "$env/dynamic/private";
+import Nodemailer from "nodemailer";
 
 export async function POST({ request }) {
     try {
@@ -13,9 +14,9 @@ export async function POST({ request }) {
         const data = await request.json();
         const salt = bcrypt.genSaltSync(15);
         const pass = bcrypt.hashSync(data.password, salt);
-        let newUser = new User({name: data.username, email: data.email, password: pass});
+        let newUser = new User({ name: data.username, email: data.email, password: pass });
         await newUser.save();
-        
+
         //Genarate verification token
         const token = await createToken(data.email);
         //Send verification email
@@ -24,16 +25,38 @@ export async function POST({ request }) {
             token: token
         }
         const url = Jwt.sign(verify, env.JWT_SECRET);
-        await sendVerificationRequest(data.email, `http://localhost:5173/verify/${url}`);
+        await send(data.email, url);
 
-        return json({cookie: data.username });        
+        return json({ cookie: data.username });
     } catch (error) {
         const data = await request.json();
-        const user = await User.findOne({"email": data.email});
+        const user = await User.findOne({ "email": data.email });
         if (user) {
-            await User.deleteOne({email: data.email});            
+            await User.deleteOne({ email: data.email });
         }
         console.log(error);
-        
+
     }
+}
+
+async function send(email: string, url: string) {
+    const transporter = Nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: "mismatch25vitc@gmail.com",
+            pass: env.APP_PASSWORD
+        }
+    });
+
+    transporter.sendMail({
+        to: email,
+        subject: "Verify your Email!",
+        html: `<a href="http://localhost:5173/verify/${url}">Click here to verify your email</a>`
+    }).then(() => {
+        console.log("Email sent successfully");
+    }).catch((err) => {
+        console.error(err);
+    });
 }
