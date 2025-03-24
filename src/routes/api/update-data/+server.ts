@@ -31,5 +31,6 @@ export async function POST({ request }) {
         return json({ message: "Data uploaded successfully!" });
     } catch (error) {
         console.log(error);
+        return json({ message: "Data upload failed!" }, { status: 400 });
     }
 }
