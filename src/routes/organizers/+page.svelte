@@ -33,9 +33,9 @@
     },
     {
       id: 3,
-      name: "Sharvin Joshi",
-      image: "/placehoder.avif",
-      description: "WebMaster",
+      name: "Vaibhav P",
+      image: "/organisersPics/Vaibhav.jpg",
+      description: "General Secretary",
       bgImage: "/box.svg",
       instagram: "sharvinjoshi",
       linkedin: "sharvinjoshi",
@@ -43,7 +43,7 @@
     {
       id: 4,
       name: "Dev Agarwal",
-      image: "/placehoder.avif",
+      image: "/organisersPics/Dev.jpg",
       description: "WebDev Lead",
       bgImage: "/box.svg",
       instagram: "devagarwal",
@@ -52,8 +52,17 @@
     {
       id: 5,
       name: "Ashif",
-      image: "/placehoder.avif",
+      image: "/organisersPics/Ashif.jpg",
       description: "WebDev Lead",
+      bgImage: "/box.svg",
+      instagram: "ashif",
+      linkedin: "ashif",
+    },
+    {
+      id: 6,
+      name: "Sharvin Joshi",
+      image: "/organisersPics/Sharvin.jpg",
+      description: "Web Master",
       bgImage: "/box.svg",
       instagram: "ashif",
       linkedin: "ashif",
@@ -106,12 +115,7 @@
                 </p>
               </div>
               <div class="text-white flex gap-2">
-                <button on:click={() => window.open(person.instagram)}>
-                  <Instagram />
-                </button>
-                <button on:click={() => window.open(person.linkedin)}>
-                  <Linkedin />
-                </button>
+                
               </div>
             </div>
           </div>
