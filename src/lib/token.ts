@@ -1,10 +1,10 @@
 import { getUser } from './getUser';
-import { v4 as uuidv4 } from 'uuid';
+import otp from 'otp-generator';
 import verification from '../models/verification';
 
 export async function createToken(email: string): Promise<string> {
     //Generate a random token
-    const token = uuidv4();
+    const token = otp.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false });
     const expires = new Date().getTime() + 1000 * 60 * 60; // 60 minutes
 
     //check if the token exists for the user

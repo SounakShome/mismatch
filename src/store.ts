@@ -1,10 +1,8 @@
-import { get, writable } from "svelte/store";
-import Jwt from "jsonwebtoken";
-import { env } from "$env/dynamic/private";
+import { writable } from "svelte/store";
 
 export const deet = writable("");
 
-export const change = (data: object) => {
-    const val = Jwt.sign(JSON.stringify(data), env.JWT_SECRET);
+export const change = (data: string) => {
+    const val = data;
     deet.set(val);
 }

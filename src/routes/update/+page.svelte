@@ -79,7 +79,7 @@
         message = '';
         
         try {
-            const response = await fetch('/api/update-data', {
+            const response = await fetch('/api/update-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

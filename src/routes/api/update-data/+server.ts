@@ -24,7 +24,7 @@ export async function POST({ request }) {
                 email: participants[i].email,
                 phone: participants[i].phone,
                 college: participants[i].college,
-                team_id: participants[i].team_id, 
+                teamId: participants[i].teamId, 
             });
             await user.save();
         }

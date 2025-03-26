@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
     token: {
-        type: String,
+        type: Number,
         required: true,
     },
     email: {

@@ -23,13 +23,13 @@
   });
 </script>
 
-<div class="min-h-screen bg-purple-950 font-roboto">
+<div class="min-h-screen bg-purple-950 mt-32 font-roboto">
   <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="shrink-0">
-            <img class="h-12" src={ras} alt="Your Company" />
+            <a href="/"><img class="h-12" src={ras} alt="Your Company" /></a>
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">

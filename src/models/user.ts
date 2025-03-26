@@ -26,8 +26,7 @@ const UserSchema = new mongoose.Schema({
     },
     teamId: {
         type: Number,
-        default: 0,
-        
+        required: true
     },
     password: {
         type: String,
