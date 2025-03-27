@@ -6,7 +6,6 @@
   import Navbar from "$lib/components/navbar/+page.svelte";
   import { UserRound } from "lucide-svelte";
   let isLoaded = writable(false);
-
   onMount(() => {
     isLoaded.set(true);
   });

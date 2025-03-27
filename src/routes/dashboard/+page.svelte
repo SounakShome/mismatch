@@ -1,13 +1,11 @@
 <script>
   import { onMount } from "svelte";
   import { page } from "$app/state";
-  import QrCode from "$lib/scripts/qrcode";
   import { goto } from "$app/navigation";
+  import ImgQR from '@svelte-put/qr/img/QR.svelte';
   import ras from "$lib/assets/ras logo.png";
-  import { deet } from "../../store";
 
-  let matrix = QrCode.generate(page.data.token);
-  let uri = QrCode.render("svg-uri", matrix);
+  // QrCreator.render()
   let showModal = false;
   let prof = false;
   let isMobile = false;
@@ -18,7 +16,6 @@
   };
   const signOut = ()=>{
     page.data.session = false;
-    deet.set("");
     goto("/signIn");
   }
   onMount(() => {
@@ -133,12 +130,13 @@
                     tabindex="-1"
                     id="user-menu-item-1">Settings</a
                   >
-                  <button on:click={() => signOut()}><a
+                  <a
+                    href="/signOut"
                     class="block cursor-pointer px-4 py-2 text-sm text-gray-700"
                     role="button"
                     tabindex="-1"
                     id="user-menu-item-2">Sign out</a
-                  ></button>
+                  >
                 </div>
               {/if}
             </div>
@@ -344,7 +342,7 @@
               >
                 <img src={ras} class="h-20 p-2" alt="logo" />
               </div>
-              <img src={uri} alt="qr" />
+              <!-- <ImgQR {page.data.token}  /> -->
             </div>
           </div>
           <div
