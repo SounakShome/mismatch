@@ -11,7 +11,6 @@
   let loading = false;
   let rememberMe = false;
   let error = "";
-  console.log(page.data);
   const signin = async () => {
     loading = true;
     try {

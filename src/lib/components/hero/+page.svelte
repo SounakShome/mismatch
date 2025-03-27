@@ -89,7 +89,7 @@
           class="bg-gradient-to-br from-purple-50 to-indigo-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border border-indigo-200"
         >
           <h3 class="text-xl font-bold text-indigo-700 mb-2">Solo</h3>
-          <div class="text-3xl font-bold mb-4">₹100</div>
+          <div class="text-3xl text-black font-bold mb-4">₹100</div>
         </div>
         </a>
 
@@ -99,7 +99,7 @@
           class="bg-gradient-to-br from-blue-50 to-cyan-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border border-blue-200 transform scale-105"
         >
           <h3 class="text-xl font-bold text-blue-700 mb-2">Duo</h3>
-          <div class="text-3xl font-bold mb-4">₹190</div>
+          <div class="text-3xl text-black font-bold mb-4">₹190</div>
         </div>
         </a>
 
@@ -109,7 +109,7 @@
           class="bg-gradient-to-br from-violet-50 to-fuchsia-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border border-violet-200"
         >
           <h3 class="text-xl font-bold text-violet-700 mb-2">Trio</h3>
-            <div class="text-3xl font-bold mb-4">₹280</div>
+            <div class="text-3xl text-black font-bold mb-4">₹280</div>
         </div>
         </a>
       </div>
@@ -157,7 +157,6 @@
     font-family: inherit;
     cursor: pointer;
     padding: 0.8em 1.3em 0.8em 0.9em;
-    color: white;
     background: transparent;
     border: none;
     letter-spacing: 0.05em;
