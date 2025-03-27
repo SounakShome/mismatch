@@ -3,8 +3,8 @@
   import Background from "$lib/components/hero/BackgroundParticles.svelte";
 </script>
 
+<Background />
 <div class={`overflow-x-hidden`}>
-  <Background />
   <Hero />
 </div>
 

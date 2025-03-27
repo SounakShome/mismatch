@@ -2,9 +2,9 @@
   import { onMount } from "svelte";
   import { page } from "$app/state";
   import QrCode from "$lib/scripts/qrcode";
-  import { signOut } from "@auth/sveltekit/client";
   import { goto } from "$app/navigation";
   import ras from "$lib/assets/ras logo.png";
+  import { deet } from "../../store";
 
   let matrix = QrCode.generate(page.data.token);
   let uri = QrCode.render("svg-uri", matrix);
@@ -16,6 +16,11 @@
     date: "December 15, 2023",
     venue: "Grand Hall, City Center",
   };
+  const signOut = ()=>{
+    page.data.session = false;
+    deet.set("");
+    goto("/signIn");
+  }
   onMount(() => {
     if (!page.data.session){
       goto("/signIn");
