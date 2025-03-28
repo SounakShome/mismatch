@@ -6,7 +6,7 @@
         { question: "Why join this event?", answer: "Mismatch offers a unique opportunity to level up, collaborate with new people, and experience a fresh, innovative approach to hackathons.", open: false },
         { question: "If I don't have a team-member then?", answer: "Don't worry! Mismatch provides you the opportunity to match up with different talented people and foster a new environment of learning.", open: false },
         { question: "How do I participate?", answer: "You can register using this same website.", open: false },
-        { question: "Does this event have a registration fee?", answer: "Yes, Rs.100 for solo, Rs.180 for duo, and Rs.280 for trio.", open: false }
+        { question: "Does this event have a registration fee?", answer: "Yes, Rs.100 for solo, Rs.190 for duo, and Rs.280 for trio.", open: false }
     ];
 
     function toggle(index: number) {
