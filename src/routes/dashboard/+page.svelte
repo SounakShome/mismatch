@@ -7,12 +7,10 @@
 
   // QrCreator.render()
   onMount(() => {
-    console.log(page.data.token);
     if (!page.data.session){
       goto("/signIn");
     }
   });
-  console.log(page.data.token);
   let uri=""
   QRCode.toDataURL(page.data.token).then(result => uri = result);
   let showModal = false;
