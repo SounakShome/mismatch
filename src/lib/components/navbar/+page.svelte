@@ -79,7 +79,7 @@
 
   <!-- Mobile Collapsible Menu -->
   <div
-    class={`fixed inset-0 z-40 w-full h-full bg-black/90 md:hidden overflow-auto flex flex-col justify-center items-center`}
+    class={`sticky inset-0 z-40 w-full h-full bg-black/90 md:hidden overflow-auto flex flex-col justify-center items-center`}
     id="mobile-menu"
     transition:fade={{ duration: 200 }}
     class:hidden={!open}

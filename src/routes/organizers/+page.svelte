@@ -82,7 +82,7 @@
     </h2>
 
     <div
-      class="flex justify-center items-center md:flex-row flex-col gap-10 px-4 min-h-[300px] md:min-h-[500px]"
+      class="flex justify-center items-center flex-wrap md:flex-row flex-col pt-10 mt-5 gap-5 md:gap-24 px-4 min-h-[300px] md:min-h-[500px]"
     >
       {#each items as person, i (person.id)}
         <div>

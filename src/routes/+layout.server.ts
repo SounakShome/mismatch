@@ -25,7 +25,7 @@ export const load = (async (events) => {
     const test = Jwt.verify(details, env.JWT_SECRET);
     return { session: true, deets: test, token: details };
   }else {
-    return { session: false, deets: null, token: null };
+    return { session: false, deets: null, token: "" };
   }
 
   // const val = get(deet);

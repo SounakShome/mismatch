@@ -2,10 +2,19 @@
   import { onMount } from "svelte";
   import { page } from "$app/state";
   import { goto } from "$app/navigation";
-  import ImgQR from '@svelte-put/qr/img/QR.svelte';
+  import QRCode from 'qrcode';
   import ras from "$lib/assets/ras logo.png";
 
   // QrCreator.render()
+  onMount(() => {
+    console.log(page.data.token);
+    if (!page.data.session){
+      goto("/signIn");
+    }
+  });
+  console.log(page.data.token);
+  let uri=""
+  QRCode.toDataURL(page.data.token).then(result => uri = result);
   let showModal = false;
   let prof = false;
   let isMobile = false;
@@ -14,15 +23,6 @@
     date: "December 15, 2023",
     venue: "Grand Hall, City Center",
   };
-  const signOut = ()=>{
-    page.data.session = false;
-    goto("/signIn");
-  }
-  onMount(() => {
-    if (!page.data.session){
-      goto("/signIn");
-    }
-  });
 </script>
 
 <div class="min-h-screen bg-purple-950 mt-32 font-roboto">
@@ -342,7 +342,7 @@
               >
                 <img src={ras} class="h-20 p-2" alt="logo" />
               </div>
-              <!-- <ImgQR {page.data.token}  /> -->
+              <img src={uri} alt="qr" />
             </div>
           </div>
           <div

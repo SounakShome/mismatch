@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import hack_logo from "$lib/assets/public/hackathon_logo_trans.png";
   import BackgroundParticles from "./BackgroundParticles.svelte";
   import { X } from "lucide-svelte";
 
@@ -37,16 +36,16 @@
 </svelte:head>
 <BackgroundParticles />
 <main
-  class="relative font-rGlitch pt-24 bg-black text-white flex flex-col items-center justify-center"
+  class="relative font-rGlitch pt-20 pb-0 bg-black text-white flex flex-col items-center justify-center"
 >
   <div class="content flex flex-col items-center text-center">
     <h1 class="md:text-5xl text-3xl">Presents</h1>
     <img
-      src={hack_logo}
+      src="/logo.png"
       alt="Hackathon Logo"
-      class="hackathon-logo max-h-64 max-w-20 md:max-w-sm"
+      class="hackathon-logo"
     />
-    <button class="md:text-2xl text-3xl" on:click={() => (popup = true)}>
+    <button class="md:text-3xl text-3xl" on:click={() => (popup = true)}>
       <svg
         height="30"
         width="30"
@@ -132,9 +131,6 @@
       font-size: 1.8rem;
     }
 
-    .content {
-      padding-top: 5%;
-    }
   }
 
   @media (max-width: 480px) {
@@ -146,9 +142,6 @@
       margin-top: 8rem;
     }
 
-    .content {
-      padding-top: 10%;
-    }
   }
 
   button {
@@ -216,7 +209,7 @@
   }
 
   .hackathon-logo {
-    max-width: 400px; /* Reduced from 400px */
+    width: 300px; /* Reduced from 400px */
   }
 
   h1 {
@@ -242,7 +235,6 @@
     min-height: calc(100vh - 80px);
     text-align: center;
     gap: 1rem;
-    padding-top: 2%; /* Add padding from the top to position the content higher */
   }
   /* .countdown {
     font-family: "Rubik Glitch", cursive;
