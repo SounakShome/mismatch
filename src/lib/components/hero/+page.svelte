@@ -36,7 +36,7 @@
 </svelte:head>
 <BackgroundParticles />
 <main
-  class="relative font-rGlitch md:pt-20 pb-0 bg-black text-white flex flex-col items-center justify-center"
+  class="relative font-rGlitch md:pt-20 pb-0 bg-black text-white flex flex-col items-center lg:justify-center"
 >
   <div class="content flex flex-col items-center text-center">
     <h1 class="md:text-5xl text-3xl">Presents</h1>
@@ -119,7 +119,7 @@
 <style>
   @media (max-width: 768px) {
     .hackathon-logo {
-      max-width: 300px;
+      width: 500px;
     }
 
     h1 {
@@ -135,7 +135,7 @@
 
   @media (max-width: 480px) {
     .hackathon-logo {
-      max-width: 200px;
+      width: 400px;
     }
 
     h1 {
