@@ -36,7 +36,7 @@
 </svelte:head>
 <BackgroundParticles />
 <main
-  class="relative font-rGlitch pt-20 pb-0 bg-black text-white flex flex-col items-center justify-center"
+  class="relative font-rGlitch md:pt-20 pb-0 bg-black text-white flex flex-col items-center justify-center"
 >
   <div class="content flex flex-col items-center text-center">
     <h1 class="md:text-5xl text-3xl">Presents</h1>
